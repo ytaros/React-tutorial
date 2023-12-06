@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-   
+  <script src="/libs/react.development.js"></script>
+  <script src="/libs/react-dom.development.js"></script>
+  <script src="/libs/babel-standalone.js"></script> 
+  <!-- 上はJSX構文：HTMLに似た構文 -->
 </head>
 <body>
-    
+    <div id="app"></div>
+    <script type ="text/babel">
+      const appEl = document.querySelector('#app'); 
+      // id指定のappをこの宣言で取ってくる
+      const root = ReactDOM.createRoot(appEl);
+      // ReactDOMというライブラリから、このROOTというのをまず作り、ルートをレンダーすると。この中に記述した内容がアップの中に挿入されて表示されるようになる。
+      root.render(<h1>こんにちは</h1>);
+      // マウントする先、埋め込みたい要素をまず指定して、Reactのルートというものを作成。ルートのレンダーメソッドを呼ぶと画面上に表示。
+      // JSXというReact独自の構文
+    </script>
 </body>
 </html>
+<!-- Uncaught SyntaxError: Unexpected token '<' 予期せぬ文字列が渡ってきてるよー -->
+<!-- JSXは通常のHTMLコードは使用しない。バベルというコードを使ってHTMLを表す。 -->
+<!-- idのエレメントを取得する、rootでappELを持ってくる。そのrootをrenderで返して、それをHTML（バベルというものが変換してくれる）で書くとJavaScriptオブジェクトに変換されて表示される。 -->
